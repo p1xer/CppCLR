@@ -713,8 +713,8 @@ namespace CppCLRWinFormsProject {
 						//double right_d = chart1->ChartAreas[0]->AxisX->Maximum;
 						//double x_d = (Math::Abs(left_d) + Math::Abs(right_d))/100;
 						//if(-x_d/2 <= i && i <= x_d/2)
-						//if(i <= 0 && i+Convert::ToDouble(textBoxStep->Text) > 0)
-						else
+						if(i <= 0 && i+Convert::ToDouble(textBoxStep->Text) > 0)
+						//else
 						{
 							System::Windows::Forms::DataVisualization::Charting::Series^ series13 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 							series13->ChartArea = L"ChartArea1";
@@ -727,7 +727,7 @@ namespace CppCLRWinFormsProject {
 							
 							chart1->Series[chart1->Series->Count - 1]->Points->AddXY(0, 0);
 							chart1->Series[0]->Points->AddXY(0, 0);
-							//chart1->Series[0]->Points[chart1->Series[0]->Points->Count - 1]->XValue = Double::NaN;
+							chart1->Series[0]->Points[chart1->Series[0]->Points->Count - 1]->IsEmpty = true;
 						}
 					}
 				}
