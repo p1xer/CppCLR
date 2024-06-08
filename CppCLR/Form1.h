@@ -125,6 +125,12 @@ namespace CppCLRWinFormsProject {
 			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->menu1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu11ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu12ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu2ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu3ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
@@ -166,17 +172,11 @@ namespace CppCLRWinFormsProject {
 			this->showMinorGridToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
-			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->menu1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menu11ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menu12ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menu2ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menu3ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
+			this->contextMenuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->BeginInit();
 			this->menuStrip1->SuspendLayout();
-			this->contextMenuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// chart1
@@ -185,12 +185,14 @@ namespace CppCLRWinFormsProject {
 			chartArea1->AxisX->Minimum = -20;
 			chartArea1->AxisY->Maximum = 2;
 			chartArea1->AxisY->Minimum = -2;
+			chartArea1->AxisX->MajorGrid->LineColor = Color::LightGray;
+			chartArea1->AxisY->MajorGrid->LineColor = Color::LightGray;
 			chartArea1->Name = L"ChartArea1";
 			this->chart1->ChartAreas->Add(chartArea1);
 			this->chart1->ContextMenuStrip = this->contextMenuStrip1;
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(12, 40);
+			this->chart1->Location = System::Drawing::Point(12, 27);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -209,13 +211,58 @@ namespace CppCLRWinFormsProject {
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
 			this->chart1->Series->Add(series3);
-			this->chart1->Size = System::Drawing::Size(300, 300);
+			this->chart1->Size = System::Drawing::Size(663, 462);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
 			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->menu1ToolStripMenuItem,
+					this->menu2ToolStripMenuItem, this->menu3ToolStripMenuItem
+			});
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(112, 70);
+			// 
+			// menu1ToolStripMenuItem
+			// 
+			this->menu1ToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->menu11ToolStripMenuItem,
+					this->menu12ToolStripMenuItem
+			});
+			this->menu1ToolStripMenuItem->Name = L"menu1ToolStripMenuItem";
+			this->menu1ToolStripMenuItem->Size = System::Drawing::Size(111, 22);
+			this->menu1ToolStripMenuItem->Text = L"Menu1";
+			// 
+			// menu11ToolStripMenuItem
+			// 
+			this->menu11ToolStripMenuItem->Name = L"menu11ToolStripMenuItem";
+			this->menu11ToolStripMenuItem->Size = System::Drawing::Size(117, 22);
+			this->menu11ToolStripMenuItem->Text = L"Menu11";
+			this->menu11ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::menu11ToolStripMenuItem_Click);
+			// 
+			// menu12ToolStripMenuItem
+			// 
+			this->menu12ToolStripMenuItem->Name = L"menu12ToolStripMenuItem";
+			this->menu12ToolStripMenuItem->Size = System::Drawing::Size(117, 22);
+			this->menu12ToolStripMenuItem->Text = L"Menu12";
+			// 
+			// menu2ToolStripMenuItem
+			// 
+			this->menu2ToolStripMenuItem->Name = L"menu2ToolStripMenuItem";
+			this->menu2ToolStripMenuItem->Size = System::Drawing::Size(111, 22);
+			this->menu2ToolStripMenuItem->Text = L"Menu2";
+			// 
+			// menu3ToolStripMenuItem
+			// 
+			this->menu3ToolStripMenuItem->Name = L"menu3ToolStripMenuItem";
+			this->menu3ToolStripMenuItem->Size = System::Drawing::Size(111, 22);
+			this->menu3ToolStripMenuItem->Text = L"Menu3";
+			this->menu3ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::menu3ToolStripMenuItem_Click);
+			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(339, 487);
+			this->button1->Location = System::Drawing::Point(536, 546);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(79, 42);
 			this->button1->TabIndex = 1;
@@ -226,7 +273,7 @@ namespace CppCLRWinFormsProject {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(540, 261);
+			this->checkBox1->Location = System::Drawing::Point(737, 320);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(82, 17);
 			this->checkBox1->TabIndex = 2;
@@ -237,7 +284,7 @@ namespace CppCLRWinFormsProject {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(540, 285);
+			this->checkBox2->Location = System::Drawing::Point(737, 344);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(81, 17);
 			this->checkBox2->TabIndex = 3;
@@ -248,7 +295,7 @@ namespace CppCLRWinFormsProject {
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(540, 309);
+			this->checkBox3->Location = System::Drawing::Point(737, 368);
 			this->checkBox3->Name = L"checkBox3";
 			this->checkBox3->Size = System::Drawing::Size(84, 17);
 			this->checkBox3->TabIndex = 4;
@@ -258,7 +305,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxA
 			// 
-			this->textBoxA->Location = System::Drawing::Point(541, 181);
+			this->textBoxA->Location = System::Drawing::Point(738, 240);
 			this->textBoxA->Name = L"textBoxA";
 			this->textBoxA->Size = System::Drawing::Size(100, 20);
 			this->textBoxA->TabIndex = 5;
@@ -266,7 +313,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxB
 			// 
-			this->textBoxB->Location = System::Drawing::Point(541, 208);
+			this->textBoxB->Location = System::Drawing::Point(738, 267);
 			this->textBoxB->Name = L"textBoxB";
 			this->textBoxB->Size = System::Drawing::Size(100, 20);
 			this->textBoxB->TabIndex = 6;
@@ -274,7 +321,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxC
 			// 
-			this->textBoxC->Location = System::Drawing::Point(541, 235);
+			this->textBoxC->Location = System::Drawing::Point(738, 294);
 			this->textBoxC->Name = L"textBoxC";
 			this->textBoxC->Size = System::Drawing::Size(100, 20);
 			this->textBoxC->TabIndex = 7;
@@ -283,7 +330,7 @@ namespace CppCLRWinFormsProject {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(648, 187);
+			this->label1->Location = System::Drawing::Point(845, 246);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(13, 13);
 			this->label1->TabIndex = 9;
@@ -292,7 +339,7 @@ namespace CppCLRWinFormsProject {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(647, 215);
+			this->label2->Location = System::Drawing::Point(844, 274);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(13, 13);
 			this->label2->TabIndex = 10;
@@ -301,7 +348,7 @@ namespace CppCLRWinFormsProject {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(647, 242);
+			this->label3->Location = System::Drawing::Point(844, 301);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(13, 13);
 			this->label3->TabIndex = 11;
@@ -309,7 +356,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxStep
 			// 
-			this->textBoxStep->Location = System::Drawing::Point(234, 487);
+			this->textBoxStep->Location = System::Drawing::Point(431, 546);
 			this->textBoxStep->Name = L"textBoxStep";
 			this->textBoxStep->Size = System::Drawing::Size(100, 20);
 			this->textBoxStep->TabIndex = 13;
@@ -318,7 +365,7 @@ namespace CppCLRWinFormsProject {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(260, 510);
+			this->label5->Location = System::Drawing::Point(457, 569);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(31, 13);
 			this->label5->TabIndex = 14;
@@ -326,7 +373,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxXMax
 			// 
-			this->textBoxXMax->Location = System::Drawing::Point(460, 487);
+			this->textBoxXMax->Location = System::Drawing::Point(657, 546);
 			this->textBoxXMax->Name = L"textBoxXMax";
 			this->textBoxXMax->Size = System::Drawing::Size(45, 20);
 			this->textBoxXMax->TabIndex = 15;
@@ -334,7 +381,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxXMin
 			// 
-			this->textBoxXMin->Location = System::Drawing::Point(460, 513);
+			this->textBoxXMin->Location = System::Drawing::Point(657, 572);
 			this->textBoxXMin->Name = L"textBoxXMin";
 			this->textBoxXMin->Size = System::Drawing::Size(45, 20);
 			this->textBoxXMin->TabIndex = 16;
@@ -342,7 +389,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxYMax
 			// 
-			this->textBoxYMax->Location = System::Drawing::Point(511, 487);
+			this->textBoxYMax->Location = System::Drawing::Point(708, 546);
 			this->textBoxYMax->Name = L"textBoxYMax";
 			this->textBoxYMax->Size = System::Drawing::Size(45, 20);
 			this->textBoxYMax->TabIndex = 17;
@@ -350,7 +397,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// textBoxYMin
 			// 
-			this->textBoxYMin->Location = System::Drawing::Point(511, 513);
+			this->textBoxYMin->Location = System::Drawing::Point(708, 572);
 			this->textBoxYMin->Name = L"textBoxYMin";
 			this->textBoxYMin->Size = System::Drawing::Size(45, 20);
 			this->textBoxYMin->TabIndex = 18;
@@ -359,7 +406,7 @@ namespace CppCLRWinFormsProject {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(425, 488);
+			this->label6->Location = System::Drawing::Point(622, 547);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(34, 13);
 			this->label6->TabIndex = 19;
@@ -368,7 +415,7 @@ namespace CppCLRWinFormsProject {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(428, 513);
+			this->label7->Location = System::Drawing::Point(625, 572);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(31, 13);
 			this->label7->TabIndex = 20;
@@ -377,7 +424,7 @@ namespace CppCLRWinFormsProject {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(562, 490);
+			this->label8->Location = System::Drawing::Point(759, 549);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(34, 13);
 			this->label8->TabIndex = 21;
@@ -386,7 +433,7 @@ namespace CppCLRWinFormsProject {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(562, 516);
+			this->label9->Location = System::Drawing::Point(759, 575);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(31, 13);
 			this->label9->TabIndex = 22;
@@ -394,7 +441,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(540, 386);
+			this->button2->Location = System::Drawing::Point(737, 445);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(35, 32);
 			this->button2->TabIndex = 23;
@@ -404,7 +451,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(541, 424);
+			this->button3->Location = System::Drawing::Point(738, 483);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(35, 32);
 			this->button3->TabIndex = 24;
@@ -414,7 +461,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// upbutton
 			// 
-			this->upbutton->Location = System::Drawing::Point(651, 457);
+			this->upbutton->Location = System::Drawing::Point(979, 495);
 			this->upbutton->Name = L"upbutton";
 			this->upbutton->Size = System::Drawing::Size(31, 24);
 			this->upbutton->TabIndex = 25;
@@ -424,7 +471,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// downbutton
 			// 
-			this->downbutton->Location = System::Drawing::Point(651, 483);
+			this->downbutton->Location = System::Drawing::Point(979, 521);
 			this->downbutton->Name = L"downbutton";
 			this->downbutton->Size = System::Drawing::Size(31, 24);
 			this->downbutton->TabIndex = 26;
@@ -434,7 +481,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// rightbutton
 			// 
-			this->rightbutton->Location = System::Drawing::Point(688, 467);
+			this->rightbutton->Location = System::Drawing::Point(1016, 505);
 			this->rightbutton->Name = L"rightbutton";
 			this->rightbutton->Size = System::Drawing::Size(31, 24);
 			this->rightbutton->TabIndex = 27;
@@ -444,7 +491,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// leftbutton
 			// 
-			this->leftbutton->Location = System::Drawing::Point(614, 467);
+			this->leftbutton->Location = System::Drawing::Point(942, 505);
 			this->leftbutton->Name = L"leftbutton";
 			this->leftbutton->Size = System::Drawing::Size(31, 24);
 			this->leftbutton->TabIndex = 28;
@@ -454,7 +501,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// trackBar1
 			// 
-			this->trackBar1->Location = System::Drawing::Point(12, 337);
+			this->trackBar1->Location = System::Drawing::Point(197, 495);
 			this->trackBar1->Maximum = 15;
 			this->trackBar1->Minimum = 1;
 			this->trackBar1->Name = L"trackBar1";
@@ -465,7 +512,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// trackBar2
 			// 
-			this->trackBar2->Location = System::Drawing::Point(319, 41);
+			this->trackBar2->Location = System::Drawing::Point(681, 96);
 			this->trackBar2->Maximum = 15;
 			this->trackBar2->Minimum = 1;
 			this->trackBar2->Name = L"trackBar2";
@@ -478,7 +525,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// hScrollBar1
 			// 
-			this->hScrollBar1->Location = System::Drawing::Point(12, 365);
+			this->hScrollBar1->Location = System::Drawing::Point(197, 523);
 			this->hScrollBar1->Maximum = 15;
 			this->hScrollBar1->Name = L"hScrollBar1";
 			this->hScrollBar1->Size = System::Drawing::Size(300, 17);
@@ -487,7 +534,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// vScrollBar1
 			// 
-			this->vScrollBar1->Location = System::Drawing::Point(346, 51);
+			this->vScrollBar1->Location = System::Drawing::Point(708, 106);
 			this->vScrollBar1->Maximum = 15;
 			this->vScrollBar1->Name = L"vScrollBar1";
 			this->vScrollBar1->Size = System::Drawing::Size(18, 279);
@@ -502,7 +549,7 @@ namespace CppCLRWinFormsProject {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(731, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1056, 24);
 			this->menuStrip1->TabIndex = 33;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -519,14 +566,14 @@ namespace CppCLRWinFormsProject {
 			// saveAsToolStripMenuItem
 			// 
 			this->saveAsToolStripMenuItem->Name = L"saveAsToolStripMenuItem";
-			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->saveAsToolStripMenuItem->Size = System::Drawing::Size(123, 22);
 			this->saveAsToolStripMenuItem->Text = L"Save As...";
 			this->saveAsToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::saveAsToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
 			this->saveToolStripMenuItem->Name = L"saveToolStripMenuItem";
-			this->saveToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->saveToolStripMenuItem->Size = System::Drawing::Size(123, 22);
 			this->saveToolStripMenuItem->Text = L"Save...";
 			this->saveToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::saveToolStripMenuItem_Click);
 			// 
@@ -571,56 +618,11 @@ namespace CppCLRWinFormsProject {
 			this->showMinorGridToolStripMenuItem->Text = L"ShowMinorGrid";
 			this->showMinorGridToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::showMinorGridToolStripMenuItem_Click);
 			// 
-			// contextMenuStrip1
-			// 
-			this->contextMenuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->menu1ToolStripMenuItem,
-					this->menu2ToolStripMenuItem, this->menu3ToolStripMenuItem
-			});
-			this->contextMenuStrip1->Name = L"contextMenuStrip1";
-			this->contextMenuStrip1->Size = System::Drawing::Size(181, 92);
-			// 
-			// menu1ToolStripMenuItem
-			// 
-			this->menu1ToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->menu11ToolStripMenuItem,
-					this->menu12ToolStripMenuItem
-			});
-			this->menu1ToolStripMenuItem->Name = L"menu1ToolStripMenuItem";
-			this->menu1ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->menu1ToolStripMenuItem->Text = L"Menu1";
-			// 
-			// menu11ToolStripMenuItem
-			// 
-			this->menu11ToolStripMenuItem->Name = L"menu11ToolStripMenuItem";
-			this->menu11ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->menu11ToolStripMenuItem->Text = L"Menu11";
-			this->menu11ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::menu11ToolStripMenuItem_Click);
-			// 
-			// menu12ToolStripMenuItem
-			// 
-			this->menu12ToolStripMenuItem->Name = L"menu12ToolStripMenuItem";
-			this->menu12ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->menu12ToolStripMenuItem->Text = L"Menu12";
-			// 
-			// menu2ToolStripMenuItem
-			// 
-			this->menu2ToolStripMenuItem->Name = L"menu2ToolStripMenuItem";
-			this->menu2ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->menu2ToolStripMenuItem->Text = L"Menu2";
-			// 
-			// menu3ToolStripMenuItem
-			// 
-			this->menu3ToolStripMenuItem->Name = L"menu3ToolStripMenuItem";
-			this->menu3ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->menu3ToolStripMenuItem->Text = L"Menu3";
-			this->menu3ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::menu3ToolStripMenuItem_Click);
-			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(731, 546);
+			this->ClientSize = System::Drawing::Size(1056, 603);
 			this->Controls->Add(this->vScrollBar1);
 			this->Controls->Add(this->hScrollBar1);
 			this->Controls->Add(this->trackBar2);
@@ -657,11 +659,11 @@ namespace CppCLRWinFormsProject {
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
+			this->contextMenuStrip1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar2))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			this->contextMenuStrip1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -674,6 +676,7 @@ namespace CppCLRWinFormsProject {
 			a = Convert::ToDouble(textBoxA->Text);
 			b = Convert::ToDouble(textBoxB->Text);
 			c = Convert::ToDouble(textBoxC->Text);
+			double step = Convert::ToDouble(textBoxStep->Text);
 			chart1->ChartAreas[0]->AxisX->Maximum = Convert::ToDouble(textBoxXMax->Text);
 			chart1->ChartAreas[0]->AxisX->Minimum = Convert::ToDouble(textBoxXMin->Text);
 			chart1->ChartAreas[0]->AxisY->Maximum = Convert::ToDouble(textBoxYMax->Text);
@@ -693,6 +696,17 @@ namespace CppCLRWinFormsProject {
 					chart1->Series[i]->Points->Clear();
 				}
 			}
+
+			System::Windows::Forms::DataVisualization::Charting::Series^ seriesox = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ seriesoy = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			//chart1->Series->Add(seriesox);
+			//chart1->Series[3]->Points->AddXY(Convert::ToDouble(textBoxXMin->Text), 0);
+			//chart1->Series[3]->Points->AddXY(Convert::ToDouble(textBoxXMax->Text), 0);
+			//chart1->Series[3]->Color = Color::Black;
+			//chart1->Series->Add(seriesoy);
+			//chart1->Series[4]->Points->AddXY(0, Convert::ToDouble(textBoxYMax->Text));
+			//chart1->Series[4]->Points->AddXY(0, Convert::ToDouble(textBoxYMin->Text));
+			//chart1->Series[4]->Color = Color::Black;
 
 			if (checkBox1->Checked)
 			{
@@ -722,7 +736,7 @@ namespace CppCLRWinFormsProject {
 							series13->MarkerStyle = System::Windows::Forms::DataVisualization::Charting::MarkerStyle::Circle;
 							series13->Color = System::Drawing::Color::DarkGreen;
 							series13->Legend = L"Legend1";
-							series13->Name = L"Точка розриву";
+							series13->Name = L"Точка розриву";	
 							this->chart1->Series->Add(series13);
 							
 							chart1->Series[chart1->Series->Count - 1]->Points->AddXY(0, 0);
@@ -732,20 +746,48 @@ namespace CppCLRWinFormsProject {
 					}
 				}
 			}
+			//ShowAnalytic привязати точки до пункта меню
 			if (checkBox2->Checked)
 			{
+				double y2;
+				System::Windows::Forms::DataVisualization::Charting::Series^ seriesf2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+				seriesf2->ChartArea = L"ChartArea1";
+				seriesf2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+				seriesf2->MarkerStyle = System::Windows::Forms::DataVisualization::Charting::MarkerStyle::Circle;
+				seriesf2->Color = System::Drawing::Color::DarkBlue;
+				seriesf2->Legend = L"Legend1";
+				seriesf2->Name = L"Асимптота";
+				this->chart1->Series->Add(seriesf2);
 				for (double i = Convert::ToDouble(textBoxXMin->Text); i < Convert::ToDouble(textBoxXMax->Text); i += Convert::ToDouble(textBoxStep->Text))
 				{
-					y = c / (a * Math::Tan(i) + b);
-					chart1->Series[1]->Points->AddXY(i, y);
+					//if ((i * Math::PI / 180)%90 == 0)
+						y = c / (a * Math::Tan(i) + b);
+						y2 = c / (a * Math::Tan(i + step) + b);
+							if(y < 0 && y2 > 0)
+							{
+
+								chart1->Series[chart1->Series->Count - 1]->Points->AddXY(i+(step/2), 0);
+								chart1->Series[1]->Points->AddXY(i+(step/2), 0);
+								chart1->Series[1]->Points[chart1->Series[1]->Points->Count - 1]->IsEmpty = true;
+							}
+							else
+							{
+								chart1->Series[1]->Points->AddXY(i, y);
+							}
 				}
 			}
 			if (checkBox3->Checked)
 			{
-				for (double i = Convert::ToDouble(textBoxXMin->Text); i < Convert::ToDouble(textBoxXMax->Text); i += Convert::ToDouble(textBoxStep->Text))
+				if(c!=0)
 				{
-					y = (a * b * Math::Log(i)) / c;
-					chart1->Series[2]->Points->AddXY(i, y);
+					for (double i = Convert::ToDouble(textBoxXMin->Text); i < Convert::ToDouble(textBoxXMax->Text); i += Convert::ToDouble(textBoxStep->Text))
+					{
+						if(i>0)
+						{
+							y = (a * b * Math::Log(i)) / c;
+							chart1->Series[2]->Points->AddXY(i, y);
+						}
+					}
 				}
 			}
 		}
